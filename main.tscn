@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://lghbml7rrrk4"]
+
+[ext_resource type="PackedScene" uid="uid://cfae3mvh41q8t" path="res://scenes/player.tscn" id="1_qm4b6"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_qm4b6")]
