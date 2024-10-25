@@ -1266,6 +1266,7 @@ shape = SubResource("RectangleShape2D_0a1vs")
 disabled = true
 
 [node name="anim_cart" type="AnimatedSprite2D" parent="CharacterBody2D"]
+visible = false
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ksnmd")
 animation = &"cart_down"
@@ -1273,7 +1274,8 @@ animation = &"cart_down"
 [node name="anim_player" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_50ctd")
-animation = &"idle_down"
+animation = &"attack_right"
+frame = 3
 
 [node name="player_collision" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 14)

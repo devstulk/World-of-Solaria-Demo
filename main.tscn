@@ -1,13 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://lghbml7rrrk4"]
+[gd_scene load_steps=7 format=3 uid="uid://lghbml7rrrk4"]
 
-[ext_resource type="PackedScene" uid="uid://cfae3mvh41q8t" path="res://scenes/player.tscn" id="1_qm4b6"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_0ixqq"]
+[ext_resource type="PackedScene" uid="uid://b5qnacado6ito" path="res://scenes/florest.tscn" id="1_5jn34"]
+[ext_resource type="PackedScene" uid="uid://c3fpr1oc8sygi" path="res://scenes/player.tscn" id="1_qm4b6"]
+[ext_resource type="PackedScene" uid="uid://h7exjo8x5c8f" path="res://scenes/slime.tscn" id="3_t8dte"]
+[ext_resource type="PackedScene" uid="uid://mrj4yjyjd5g7" path="res://scenes/GUI.tscn" id="5_1a4m8"]
 
-[node name="main" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="Curve2D" id="Curve2D_uu7xd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 91, 131, 0, 0, 0, 0, 329, 135, 0, 0, 0, 0, 332, 331, 0, 0, 0, 0, 87, 326, 0, 0, 0, 0, 210, 279, 0, 0, 0, 0, 204, 426, 0, 0, 0, 0, 64, 511, 0, 0, 0, 0, 119, 592, 0, 0, 0, 0, 304, 530, 0, 0, 0, 0, 472, 345, 0, 0, 0, 0, 546, 533, 0, 0, 0, 0, 714, 513, 0, 0, 0, 0, 778, 328, 0, 0, 0, 0, 687, 218, 0, 0, 0, 0, 451, 256, 0, 0, 0, 0, 429, 145, 0, 0, 0, 0, 693, 141, 0, 0, 0, 0, 753, 128, 0, 0, 0, 0, 759, 9, 0, 0, 0, 0, 868, 33, 0, 0, 0, 0, 936, 247, 0, 0, 0, 0, 952, 447, 0, 0, 0, 0, 891, 503, 0, 0, 0, 0, 970, 586, 0, 0, 0, 0, 1084, 584, 0, 0, 0, 0, 982, 456, 0, 0, 0, 0, 993, 348, 0, 0, 0, 0, 1067, 243, 0, 0, 0, 0, 978, 58, 0, 0, 0, 0, 935, -3, 0, 0, 0, 0, 644, -22, 0, 0, 0, 0, 755, 75, 0, 0, 0, 0, 733, 194, 0, 0, 0, 0, 531, 37, 0, 0, 0, 0, 242, 39, 0, 0, 0, 0, 34, 37, 0, 0, 0, 0, 19, 120, 0, 0, 0, 0, 21, 369, 0, 0, 0, 0, 78, 428, 0, 0, 0, 0, 236, 481, 0, 0, 0, 0, 196, 297, 0, 0, 0, 0, 96, 267, 0, 0, 0, 0, 89, 131)
+}
+point_count = 43
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_qm4b6")]
+[node name="main" type="Node2D"]
+script = ExtResource("1_0ixqq")
+
+[node name="florest" parent="." instance=ExtResource("1_5jn34")]
+
+[node name="player" parent="florest" instance=ExtResource("1_qm4b6")]
+position = Vector2(131, 301)
+
+[node name="slime" parent="florest" instance=ExtResource("3_t8dte")]
+position = Vector2(426, 466)
+
+[node name="slime2" parent="florest" instance=ExtResource("3_t8dte")]
+position = Vector2(604, 122)
+
+[node name="slime3" parent="florest" instance=ExtResource("3_t8dte")]
+position = Vector2(826, 430)
+
+[node name="slime4" parent="florest" instance=ExtResource("3_t8dte")]
+position = Vector2(1020, 158)
+
+[node name="slime5" parent="florest" instance=ExtResource("3_t8dte")]
+position = Vector2(986, 550)
+
+[node name="spawn_slime" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="path_spawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uu7xd")
+
+[node name="path_spawn_follow" type="PathFollow2D" parent="path_spawn"]
+position = Vector2(91, 131)
+rotation = 0.0168051
+
+[node name="GUI" parent="." instance=ExtResource("5_1a4m8")]
+
+[connection signal="timeout" from="spawn_slime" to="." method="_on_spawn_slime_timeout"]
+[connection signal="start_game" from="GUI" to="." method="_on_gui_start_game"]

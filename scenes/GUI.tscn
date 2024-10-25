@@ -1,0 +1,292 @@
+[gd_scene load_steps=5 format=3 uid="uid://mrj4yjyjd5g7"]
+
+[ext_resource type="FontFile" uid="uid://becyn2rj6v8ry" path="res://fonts/antiquity-print.ttf" id="1_0yy80"]
+[ext_resource type="Script" path="res://scripts/GUI.gd" id="1_32nan"]
+[ext_resource type="Theme" uid="uid://cqbg6c8lhbqbo" path="res://theme/menu_btn.tres" id="2_pl5w6"]
+[ext_resource type="StyleBox" uid="uid://b4n0wp78auxev" path="res://theme/close_x.tres" id="4_4y5d2"]
+
+[node name="GUI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_32nan")
+
+[node name="background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.686275)
+
+[node name="title" type="Label" parent="."]
+offset_top = 76.0
+offset_right = 1152.0
+offset_bottom = 136.0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_0yy80")
+theme_override_font_sizes/font_size = 48
+text = "World of Solaria Demo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="game_menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -82.0
+offset_right = 70.5
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="start_btn" type="Button" parent="game_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "Start Game"
+flat = true
+
+[node name="controls_btn" type="Button" parent="game_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "Controls
+"
+flat = true
+
+[node name="credits_btn" type="Button" parent="game_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "Credits
+"
+flat = true
+
+[node name="exit_btn" type="Button" parent="game_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "Exit
+"
+flat = true
+
+[node name="pause_menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -147.0
+offset_right = 104.5
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="title" type="Label" parent="pause_menu"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_0yy80")
+theme_override_font_sizes/font_size = 48
+text = "Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resume_btn" type="Button" parent="pause_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "Resume Game"
+flat = true
+
+[node name="controls_btn" type="Button" parent="pause_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "Controls
+"
+flat = true
+
+[node name="exit_btn" type="Button" parent="pause_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "Exit
+"
+flat = true
+
+[node name="game_over_menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.5
+offset_top = -79.0
+offset_right = 162.5
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="title" type="Label" parent="game_over_menu"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_0yy80")
+theme_override_font_sizes/font_size = 48
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_to_menu" type="Button" parent="game_over_menu"]
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("2_pl5w6")
+theme_override_colors/font_pressed_color = Color(0.569882, 0.569882, 0, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+text = "back to menu"
+flat = true
+
+[node name="credits_text" type="RichTextLabel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_0yy80")
+theme_override_fonts/bold_font = ExtResource("1_0yy80")
+bbcode_enabled = true
+text = "[center]
+
+[b]Credits:[/b]
+
+
+[b]Game:[/b]
+
+Created by [url=https://devstulk.itch.io]Stulk[/url]
+
+
+
+[b]Sprite and tilemap:[/b]
+
+Created by [url=https://jamiebrownhill.itch.io]Jamiebrownhill[/url]
+
+
+
+[b]Texts font:[/b]
+ 
+Created by [url=https://ninjikin.itch.io]SciGho[/url]
+
+
+
+We sincerely thank the talented artists who have made these resources freely available to the game development community. Your contributions were essential to the creation of this project.
+[/center]"
+meta_underlined = false
+
+[node name="close_x" type="Button" parent="credits_text"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0.699385, 0.699385, 3.85046e-07, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_4y5d2")
+theme_override_styles/hover = ExtResource("4_4y5d2")
+theme_override_styles/pressed = ExtResource("4_4y5d2")
+text = "X"
+
+[node name="controls_text" type="RichTextLabel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_0yy80")
+theme_override_fonts/bold_font = ExtResource("1_0yy80")
+bbcode_enabled = true
+text = "[center]
+
+[b]Controls:[/b]
+
+
+
+[b]Moviments:[/b]
+
+A, W, S, D
+
+
+
+[b]Attack:[/b]
+
+Space or mouse left click 
+
+
+
+[b]Enable and disable cart:[/b]
+ 
+Shift
+
+
+[/center]"
+meta_underlined = false
+
+[node name="close_x" type="Button" parent="controls_text"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+focus_mode = 0
+theme_override_colors/font_pressed_color = Color(0.699385, 0.699385, 3.85046e-07, 1)
+theme_override_colors/font_hover_color = Color(0.745098, 0.745098, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("4_4y5d2")
+theme_override_styles/hover = ExtResource("4_4y5d2")
+theme_override_styles/pressed = ExtResource("4_4y5d2")
+text = "X"
+
+[connection signal="pressed" from="game_menu/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="game_menu/controls_btn" to="." method="_on_controls_btn_pressed"]
+[connection signal="pressed" from="game_menu/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="game_menu/exit_btn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="pause_menu/resume_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="pause_menu/controls_btn" to="." method="_on_controls_btn_pressed"]
+[connection signal="pressed" from="pause_menu/exit_btn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="game_over_menu/back_to_menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="meta_clicked" from="credits_text" to="." method="_on_credits_text_meta_clicked"]
+[connection signal="pressed" from="credits_text/close_x" to="." method="_show_menu"]
+[connection signal="meta_clicked" from="controls_text" to="." method="_on_credits_text_meta_clicked"]
+[connection signal="pressed" from="controls_text/close_x" to="." method="_show_menu"]

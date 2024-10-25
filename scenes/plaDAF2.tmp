@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=3 uid="uid://c3fpr1oc8sygi"]
+[gd_scene load_steps=164 format=3 uid="uid://c3fpr1oc8sygi"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_iwsmw"]
 [ext_resource type="Texture2D" uid="uid://dnt68b0nk8gk1" path="res://assets/player/Chris Idle.png" id="2_h7dwf"]
@@ -282,9 +282,6 @@ animations = [{
 "name": &"one_sword_up",
 "speed": 18.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a1vs"]
-size = Vector2(39, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r5cvm"]
 atlas = ExtResource("3_ngv46")
@@ -1207,85 +1204,30 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jur4c"]
 radius = 7.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddksl"]
-size = Vector2(12, 12.5)
-
 [node name="player" type="Node2D"]
-y_sort_enabled = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
-y_sort_enabled = true
-collision_mask = 6
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_mask = 4
 script = ExtResource("1_iwsmw")
 
-[node name="anim_weapon" type="AnimatedSprite2D" parent="CharacterBody2D" groups=["player"]]
+[node name="anim_weapon" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(1, 6)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1nfur")
-animation = &"one_sword_left"
-frame = 3
-
-[node name="sword_atk_down" type="Area2D" parent="CharacterBody2D/anim_weapon"]
-position = Vector2(0, 20)
-collision_layer = 0
-collision_mask = 2
-
-[node name="collision_sword_atk_down" type="CollisionShape2D" parent="CharacterBody2D/anim_weapon/sword_atk_down"]
-position = Vector2(-0.5, -5.5)
-shape = SubResource("RectangleShape2D_0a1vs")
-disabled = true
-
-[node name="sword_atk_up" type="Area2D" parent="CharacterBody2D/anim_weapon"]
-position = Vector2(0, -12)
-collision_layer = 0
-collision_mask = 2
-
-[node name="collision_sword_atk_up" type="CollisionShape2D" parent="CharacterBody2D/anim_weapon/sword_atk_up"]
-position = Vector2(-0.5, -1.5)
-shape = SubResource("RectangleShape2D_0a1vs")
-disabled = true
-
-[node name="sword_atk_left" type="Area2D" parent="CharacterBody2D/anim_weapon"]
-position = Vector2(-13.5, 5.5)
-collision_layer = 0
-collision_mask = 2
-
-[node name="collision_sword_atk_left" type="CollisionShape2D" parent="CharacterBody2D/anim_weapon/sword_atk_left"]
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_0a1vs")
-disabled = true
-
-[node name="sword_atk_right" type="Area2D" parent="CharacterBody2D/anim_weapon"]
-position = Vector2(13, 1.5)
-collision_layer = 0
-collision_mask = 2
-
-[node name="collision_sword_atk_right" type="CollisionShape2D" parent="CharacterBody2D/anim_weapon/sword_atk_right"]
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_0a1vs")
-disabled = true
+animation = &"one_sword_down"
 
 [node name="anim_cart" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ksnmd")
-animation = &"cart_down"
+animation = &"cart_right"
 
 [node name="anim_player" type="AnimatedSprite2D" parent="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_50ctd")
-animation = &"idle_down"
+animation = &"cart_right"
 
 [node name="player_collision" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 14)
 shape = SubResource("CircleShape2D_jur4c")
 
-[node name="cart_collision" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, -5.5)
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_ddksl")
-
 [connection signal="animation_finished" from="CharacterBody2D/anim_weapon" to="CharacterBody2D" method="_on_anim_weapon_animation_finished"]
-[connection signal="body_entered" from="CharacterBody2D/anim_weapon/sword_atk_down" to="CharacterBody2D" method="_on_sword_atk_body_entered"]
-[connection signal="body_entered" from="CharacterBody2D/anim_weapon/sword_atk_up" to="CharacterBody2D" method="_on_sword_atk_body_entered"]
-[connection signal="body_entered" from="CharacterBody2D/anim_weapon/sword_atk_left" to="CharacterBody2D" method="_on_sword_atk_body_entered"]
-[connection signal="body_entered" from="CharacterBody2D/anim_weapon/sword_atk_right" to="CharacterBody2D" method="_on_sword_atk_body_entered"]
